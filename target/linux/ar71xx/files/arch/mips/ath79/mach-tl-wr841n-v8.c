@@ -180,7 +180,6 @@ static void __init tl_wr841n_v8_setup(void)
 MIPS_MACHINE(ATH79_MACH_TL_WR841N_V8, "TL-WR841N-v8", "TP-LINK TL-WR841N/ND v8",
 	     tl_wr841n_v8_setup);
 
-
 static void __init tl_wr842n_v2_setup(void)
 {
 	tl_ap123_setup();
