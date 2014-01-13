@@ -1,0 +1,43 @@
+Index: linux-3.10.24/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.10.24.orig/arch/mips/ath79/machtypes.h	2014-01-08 00:36:23.546933738 +0800
++++ linux-3.10.24/arch/mips/ath79/machtypes.h	2014-01-08 00:36:23.582933740 +0800
+@@ -156,6 +156,7 @@
+ 	ATH79_MACH_WZR_HP_G450H,	/* Buffalo WZR-HP-G450H */
+ 	ATH79_MACH_ZCN_1523H_2,		/* Zcomax ZCN-1523H-2-xx */
+ 	ATH79_MACH_ZCN_1523H_5,		/* Zcomax ZCN-1523H-5-xx */
++	ATH79_MACH_AP123,		
+ };
+ 
+ #endif /* _ATH79_MACHTYPE_H */
+Index: linux-3.10.24/arch/mips/ath79/Kconfig
+===================================================================
+--- linux-3.10.24.orig/arch/mips/ath79/Kconfig	2014-01-08 00:36:23.546933738 +0800
++++ linux-3.10.24/arch/mips/ath79/Kconfig	2014-01-08 00:38:18.926938759 +0800
+@@ -889,6 +889,17 @@
+ 	select ATH79_DEV_USB
+ 	select ATH79_DEV_WMAC
+ 
++config ATH79_MACH_AP123
++	bool "ap123 support"
++	select SOC_AR934X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_USB
++	select ATH79_DEV_WMAC
++
++
+ endmenu
+ 
+ config SOC_AR71XX
+Index: linux-3.10.24/arch/mips/ath79/Makefile
+===================================================================
+--- linux-3.10.24.orig/arch/mips/ath79/Makefile	2014-01-08 00:36:23.546933738 +0800
++++ linux-3.10.24/arch/mips/ath79/Makefile	2014-01-08 00:37:15.430935891 +0800
+@@ -127,3 +127,4 @@
+ obj-$(CONFIG_ATH79_MACH_WZR_HP_G450H)	+= mach-wzr-hp-g450h.o
+ obj-$(CONFIG_ATH79_MACH_ZCN_1523H)	+= mach-zcn-1523h.o
+ obj-$(CONFIG_ATH79_MACH_CARAMBOLA2)	+= mach-carambola2.o
++obj-$(CONFIG_ATH79_MACH_AP123)	+= mach-ap123.o
