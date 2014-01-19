@@ -222,8 +222,8 @@ wndr4300_mtdlayout=mtdparts=ar934x-nfc:256k(u-boot)ro,256k(u-boot-env)ro,256k(ca
 zcn1523h_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6208k(rootfs),1472k(kernel),64k(configure)ro,64k(mfg)ro,64k(art)ro,7680k@0x50000(firmware)
 mynet_n600_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,64k(devdata)ro,64k(devconf)ro,15872k(firmware),64k(radiocfg)ro
 mynet_rext_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,7808k(firmware),64k(nvram)ro,64k(ART)ro,6848k@0x130000(filesystem)
-ap123_mtdlayout_16M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),13888k(rootfs),2048k(uImage),64k(mib0),64k(ART)
-ap123_mtdlayout_4M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),2240k(rootfs),1408k(uImage),64k(mib0),64k(ART)
+ap123_mtdlayout_16M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),13888k(rootfs),2048k(uImage),64k(mib0),64k(ART),15936k@0x50000(firmware)
+ap123_mtdlayout_4M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),2240k(rootfs),1408k(uImage),64k(mib0),64k(ART),3648@0x50000(firmware)
 
 define Image/BuildKernel
 	cp $(KDIR)/vmlinux.elf $(VMLINUX).elf
