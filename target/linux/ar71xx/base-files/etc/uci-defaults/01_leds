@@ -338,8 +338,6 @@ ap123)
 	ucidef_set_led_netdev "wan" "WAN" "ap123:green:wan" "eth0"
 	ucidef_set_led_switch "lan1" "LAN1" "ap123:green:lan1" "switch0" "0x04"
 	ucidef_set_led_switch "lan2" "LAN2" "ap123:green:lan2" "switch0" "0x08"
-	ucidef_set_led_switch "lan3" "LAN3" "ap123:green:lan3" "switch0" "0x10"
-	ucidef_set_led_switch "lan4" "LAN4" "ap123:green:lan4" "switch0" "0x02"
 	ucidef_set_led_wlan "wlan" "WLAN" "ap123:green:wlan" "phy0tpt"
 	;;
 esac

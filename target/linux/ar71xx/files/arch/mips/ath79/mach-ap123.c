@@ -23,20 +23,14 @@
 #include "dev-wmac.h"
 #include "machtypes.h"
 
-#define AP123_GPIO_LED_WLAN	13
-#define AP123_GPIO_LED_QSS	15
+#define AP123_GPIO_LED_WLAN	14
 #define AP123_GPIO_LED_WAN	18
-#define AP123_GPIO_LED_LAN1	19
-#define AP123_GPIO_LED_LAN2	20
-#define AP123_GPIO_LED_LAN3	21
-#define AP123_GPIO_LED_LAN4	12
-#define AP123_GPIO_LED_SYSTEM	14
+#define AP123_GPIO_LED_LAN1	20
+#define AP123_GPIO_LED_LAN2	22
+#define AP123_GPIO_LED_USB	11
 
 #define AP123_GPIO_BTN_RESET	17
-#define AP123_GPIO_SW_RFKILL	16	/* WPS for MR3420 v2 */
-
-#define TL_MR3420V2_GPIO_LED_3G	11
-#define TL_MR3420V2_GPIO_USB_POWER	4
+#define AP123_GPIO_SW_RFKILL	16
 
 #define AP123_KEYS_POLL_INTERVAL	20	/* msecs */
 #define AP123_KEYS_DEBOUNCE_INTERVAL (3 * AP123_KEYS_POLL_INTERVAL)
@@ -61,28 +55,16 @@ static struct gpio_led ap123_leds_gpio[] __initdata = {
 		.gpio		= AP123_GPIO_LED_LAN2,
 		.active_low	= 1,
 	}, {
-		.name		= "ap123:green:lan3",
-		.gpio		= AP123_GPIO_LED_LAN3,
-		.active_low	= 1,
-	}, {
-		.name		= "ap123:green:lan4",
-		.gpio		= AP123_GPIO_LED_LAN4,
-		.active_low	= 1,
-	}, {
-		.name		= "ap123:green:qss",
-		.gpio		= AP123_GPIO_LED_QSS,
-		.active_low	= 1,
-	}, {
-		.name		= "ap123:green:system",
-		.gpio		= AP123_GPIO_LED_SYSTEM,
-		.active_low	= 1,
-	}, {
 		.name		= "ap123:green:wan",
 		.gpio		= AP123_GPIO_LED_WAN,
 		.active_low	= 1,
 	}, {
 		.name		= "ap123:green:wlan",
 		.gpio		= AP123_GPIO_LED_WLAN,
+		.active_low	= 1,
+	}, {
+		.name		= "ap123:green:usb",
+		.gpio		= AP123_GPIO_LED_USB,
 		.active_low	= 1,
 	}
 };

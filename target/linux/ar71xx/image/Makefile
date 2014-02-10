@@ -223,7 +223,8 @@ zcn1523h_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6208k(rootfs
 mynet_n600_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,64k(devdata)ro,64k(devconf)ro,15872k(firmware),64k(radiocfg)ro
 mynet_rext_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,7808k(firmware),64k(nvram)ro,64k(ART)ro,6848k@0x130000(filesystem)
 ap123_mtdlayout_16M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),13888k(rootfs),2048k(uImage),64k(mib0),64k(ART),15936k@0x50000(firmware)
-ap123_mtdlayout_4M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),2240k(rootfs),1408k(uImage),64k(mib0),64k(ART),3648@0x50000(firmware)
+ap123_mtdlayout_4M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),2240k(rootfs),1408k(uImage),64k(mib0),64k(ART),3648k@0x50000(firmware)
+ap123_mtdlayout_8M=mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),6336k(rootfs),1408k(uImage),64k(mib0),64k(ART),7744k@0x50000(firmware)
 
 define Image/BuildKernel
 	cp $(KDIR)/vmlinux.elf $(VMLINUX).elf
@@ -893,6 +894,7 @@ $(eval $(call SingleProfile,AthLzma,64k,HORNETUBx2,hornet-ub-x2,HORNET-UB,ttyATH
 $(eval $(call SingleProfile,AthLzma,64k,PB92,pb92,PB92,ttyS0,115200,$$(pb92_mtdlayout),917504,2818048,KRuImage))
 $(eval $(call SingleProfile,AthLzma,64k,WLR8100,wlr8100,WLR8100,ttyS0,115200,$$(wlr8100_mtdlayout),1441792,12320768,KRuImage))
 $(eval $(call SingleProfile,AthLzma,64k,AP123_4M,ap123-4M,AP123,ttyS0,115200,$$(ap123_mtdlayout_4M),1441792,2293760,RKuImage))
+$(eval $(call SingleProfile,AthLzma,64k,AP123_8M,ap123-8M,AP123,ttyS0,115200,$$(ap123_mtdlayout_8M),1441792,6488064,RKuImage))
 $(eval $(call SingleProfile,AthLzma,64k,AP123_16M,ap123-16M,AP123,ttyS0,115200,$$(ap123_mtdlayout_16M),2097152,14221312,RKuImage))
 
 $(eval $(call SingleProfile,CameoAP91,64kraw,DIR600A1,dir-600-a1,DIR-600-A1,ttyS0,115200,"AP91-AR7240-RT-090223-00"))
@@ -1053,7 +1055,7 @@ $(eval $(call SingleProfile,Zcomax,64k,ZCN1523H516,zcn-1523h-5-16,ZCN-1523H-5,tt
 
 $(eval $(call SingleProfile,ZyXEL,64k,NBG_460N_550N_550NH,nbg460n_550n_550nh,NBG460N,ttyS0,115200,NBG-460N))
 
-$(eval $(call MultiProfile,AP123,AP123_4M AP123_16M))
+$(eval $(call MultiProfile,AP123,AP123_4M AP123_8M AP123_16M))
 $(eval $(call MultiProfile,AP121,AP121_2M AP121_4M))
 $(eval $(call MultiProfile,AP136,AP136_010 AP136_020))
 $(eval $(call MultiProfile,EWDORIN, EWDORINAP EWDORINRT))
